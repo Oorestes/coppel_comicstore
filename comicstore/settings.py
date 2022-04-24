@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'api',
     #librerias,
     'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ WSGI_APPLICATION = 'comicstore.wsgi.application'
 
 MONGO_USERNAME = quote_plus('orestes_test')
 MONGO_PASSWORD = quote_plus('cLJwDq7mMOxe')
-MONGO_DATABASE = 'comicstore'
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -135,3 +137,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Marvel
+MARVEL_PUBLIC_KEY = '5497233f4384441fdc5be301bf2c89da'
+MARVEL_PRIVATE_KEY = 'bb9028a60c94173fa3449ca5ea9eaf2782096828'
+MARVEL_ENDPOINT = 'https://gateway.marvel.com:443/v1/public'
+MARVEL_LIMIT = 100
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
